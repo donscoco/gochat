@@ -4,9 +4,9 @@ metadata:
   name: debug-web
   namespace: test
 spec:
-  replica: 1
+  replicas: 1
   selector:
-    matchLabel:
+    matchLabels:
       app: debug-web
   template:
     metadata:
