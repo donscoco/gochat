@@ -5,9 +5,9 @@ metadata:
   namespace: test
 spec:
   replicas: 1
-    selector:
-      matchLabels:
-        app: debug-web
+  selector:
+    matchLabels:
+      app: debug-web
   template:
     metadata:
       labels:
