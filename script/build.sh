@@ -1,6 +1,6 @@
 
 
-
+GOPROXY=https://goproxy.cn
 go env
 # 预定义变量
 PROJ_PATH=
