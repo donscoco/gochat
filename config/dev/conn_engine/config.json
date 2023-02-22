@@ -1,0 +1,81 @@
+{
+  "log":{
+    "log_path": "/data/log/conn_engine/",
+    "log_level": "INFO",
+    "log_mode": "day"
+  },
+  "log_req": true,
+  "server": {
+    "mysql": [{
+      "proxy_name": "default",
+      "addr": "192.168.2.132:3306",
+      "username": "ironhead",
+      "#password": "${IRONHEAD_PWD}",
+      "password": "123456",
+      "database": "gochat",
+      "conn_max_lifetime":7200
+    }],
+    "redis": [{
+      "proxy_name": "default",
+      "addrs": ["192.168.2.132:6379"],
+      "username": "ironhead",
+      "password": "",
+      "database": 0,
+      "dial_timeout": 10,
+      "read_timeout":30,
+      "write_timeout":30,
+      "max_retries":   3
+    }],
+    "mongodb": [{
+      "addrs": ["192.168.2.132:27017"],
+      "connect_timeout": 20
+    }]
+  },
+  "http": {
+    "addr": "0.0.0.0:9980",
+    "read_timeout": 60,
+    "write_timeout": 60,
+    "max_header_bytes" :60,
+    "debug_mode": "debug"
+  },
+  "session": {
+    "redis_addr": "192.168.2.132:6379",
+    "redis_pwd": ""
+  },
+  "coordinator": {
+    "zookeeper": {
+      "addrs"   :["192.168.2.132:2181","192.168.2.132:2182","192.168.2.132:2183"],
+      "Timeout": 6
+    }
+  },
+  "rpc_server": {
+    "data_engine": {
+      "addr": ":7990",
+      "root_path": "/data_engine_server"
+    },
+    "conn_engine": {
+      "addr": ":9990",
+      "root_path": "/conn_engine_server"
+    }
+  },
+  "kafka": {
+    "addrs": ["192.168.2.132:9092", "192.168.2.132:9093", "192.168.2.132:9094"],
+    "version": "0.11.0.1",
+    "producer": {
+      "required_acks": "WaitForAll",
+      "return_suc": "true"
+    },
+    "consumer": {
+      "client_id": "ironhead-client",
+      "group_id": "irongroup",
+      "topics": ["domark-test"]
+    }
+  },
+  "oss": {
+    "endpoint":"https://oss-cn-guangzhou.aliyuncs.com",
+    "access_key_id": "LTAI5tHkB2m5AjwRej8WQp6J",
+    "access_key_secret": "${IRONHEAD_OSS_SECRET}",
+    "bucket": "donscoco-bucket",
+    "url_prefix": "https://donscoco-bucket.oss-cn-guangzhou.aliyuncs.com/"
+  }
+}
