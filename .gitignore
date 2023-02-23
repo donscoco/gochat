@@ -6,3 +6,5 @@ bin/
 vendor/
 
 test/
+
+cmd/lab

@@ -1,5 +1,3 @@
-
-
 GOPROXY=https://goproxy.cn
 go env
 # 预定义变量
@@ -12,7 +10,7 @@ imageTag=v1
 ## 先下载好包，待会docker化时放到镜像里面
 go mod vendor
 ## docker login
-docker build -t ${image}:${imageTag} .
+docker build -t ${image}:${imageTag} deploy/debugweb/Dockerfile .
 docker push ${image}:${imageTag}
 
 #替换 版本宏

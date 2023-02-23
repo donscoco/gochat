@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: conn-engine
+  namespace: gochat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: conn-engine
+  template:
+    metadata:
+      labels:
+        app: conn-engine
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: conn-engine
+          image: donscoco/conn_engine:v1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9980
+          env:
+            - name: TEST_ENV
+              value: "test-env-val"
+          volumeMounts:
+            - name: log-vol
+              mountPath: "/data/log/"
+      volumes:
+        - name: log-vol
+          hostPath:
+            path: /data/log/
