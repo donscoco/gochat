@@ -128,7 +128,7 @@ func (p *KafkaProducer) Input() chan *sarama.ProducerMessage {
 	return p.input
 }
 func (p *KafkaProducer) String() string {
-	return fmt.Sprintf("生产者(name=%s, brokers=%v)", "", p.Brokers)
+	return fmt.Sprintf("生产者(name=%s, brokers=%+v)", "", p.Brokers)
 }
 
 func NewMessage(topic string, data []byte) (msg *sarama.ProducerMessage) {

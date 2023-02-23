@@ -25,7 +25,7 @@ spec:
               value: "test-env-val"
           volumeMounts:
             - name: log-vol
-              mountPath: "/data/log/conn_engine/"
+              mountPath: "/data/log/"
       volumes:
         - name: log-vol
           hostPath:
