@@ -10,7 +10,10 @@ import (
 	"github.com/donscoco/gochat/pkg/iron_config"
 	"github.com/donscoco/gochat/pkg/iron_core"
 	"github.com/donscoco/gochat/pkg/iron_log"
+	"os"
 )
+
+const GOCHAT_ENV = "GOCHAT_ENV"
 
 var env string
 
@@ -25,6 +28,11 @@ func init() {
 func main() {
 
 	flag.Parse()
+
+	gochatenv := os.Getenv(GOCHAT_ENV)
+	if len(gochatenv) > 0 {
+		env = gochatenv
+	}
 
 	configPath := config.Path("./" + env + "/data_engine/config.json")
 
