@@ -79,6 +79,12 @@ stun 服务列表：https://gist.github.com/yetithefoot/7592580
 
 
 
+线上demo：http://8.134.137.220:8880/dist     （线上机器配置和带宽都比较低，第一次加载会比较慢）
+
+
+
+
+
 注册登陆页面
 
 ![img](./doc/img/demo-login.png)
