@@ -142,6 +142,11 @@ home主页
 ![img](./doc/img/demo-group-invite.png)
 
 
+chatGPT 聊天机器人
+
+![img](./doc/img/demo-chatgpt-2.png)
+
+
 
 
 
